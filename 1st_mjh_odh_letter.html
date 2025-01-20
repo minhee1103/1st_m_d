@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1주년☆</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('letter/letter_bg.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #popup {
+            background-image: url('letter/letter_pop up.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 901px;
+            height: 962px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: none;
+        }
+        #closedLetter {
+            background-image: url('letter/letter_close.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 519px;
+            height: 525px;
+            opacity: 0;
+            transition: opacity 1s;
+            display: none;
+            top: 45%;
+        }
+        #closedLetter:hover {
+            background-image: url('letter/letter_open.png');
+            transition: background-image 0.3s ease-in-out;
+        }
+        #openLetter {
+            background-image: url('letter/love letter.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 600px;
+            height: 600px;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 2;
+            opacity: 0;  /* 초기 상태에서 투명도 설정 */
+            transition: top 0.7s ease-out, opacity 0.7s ease-out;  /* top과 opacity 모두 애니메이션 */
+        }
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            display: none;
+            z-index: 1;
+        }
+
+        .exit-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            z-index: 3;
+        }
+
+        .exit-button img {
+            width: 55px;
+            height: 55px;
+            margin-right: 8px;
+        }
+
+        .exit-button span {
+            font-family: 'GongGothicMedium', sans-serif;
+            color: rgb(112, 100, 100);
+            font-size: 16px;
+        }
+
+        .exit-button:hover {
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="popup" class="centered"></div>
+<div id="closedLetter" class="centered"></div>
+<div id="openLetter" class="centered"></div>
+<div id="overlay"></div>
+<a href="1st_mjh_odh.html" class="exit-button">
+    <img src="main folder/x button.png" alt="Exit Icon">
+</a>
+
+<script>
+    window.onload = function() {
+        const popup = document.getElementById('popup');
+        const closedLetter = document.getElementById('closedLetter');
+        const openLetter = document.getElementById('openLetter');
+        const overlay = document.getElementById('overlay');
+
+        setTimeout(() => {
+            popup.style.display = 'block';
+            setTimeout(() => {
+                popup.style.opacity = '1';
+            }, 10);
+        }, 500);
+
+        setTimeout(() => {
+            closedLetter.style.display = 'block';
+            setTimeout(() => {
+                closedLetter.style.opacity = '1';
+            }, 10);
+        }, 1500);
+
+        closedLetter.addEventListener('click', () => {
+            overlay.style.display = 'block';
+            openLetter.style.display = 'block';
+
+            // 애니메이션 적용 전 top 리셋
+            openLetter.style.top = '100%';
+            openLetter.style.opacity = '0';  // 처음에는 투명하게 시작
+
+            setTimeout(() => {
+                openLetter.style.top = '50%'; // 아래에서 위로 올라오는 애니메이션
+                openLetter.style.opacity = '1';  // 서서히 불투명해지도록
+            }, 10);
+        });
+
+        openLetter.addEventListener('click', () => {
+            openLetter.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        overlay.addEventListener('click', () => {
+            openLetter.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1주년☆</title>
+  <style>
+    /* 폰트 로딩 */
+    @font-face {
+      font-family: 'DOSIyagiMedium';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/DOSIyagiMedium.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'GongGothicMedium';
+      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'DOSIyagiMedium', sans-serif;
+      overflow-x: hidden; /* 가로 스크롤만 허용 */
+      overflow-y: hidden; /* 세로 스크롤 비활성화 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url(1st/1st_bg.png); /* 배경 이미지 URL */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 10px; /* 갭 조정 */
+      padding: 20px; /* 패딩 조정 */
+      overflow-x: auto;
+      overflow-y: hidden; /* 세로 스크롤 비활성화 */
+      opacity: 0;
+      animation: fadeIn 3s forwards, slideIn 3s forwards;
+      justify-content: flex-start;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE and Edge */
+      margin-left: 50px; /* 왼쪽 마진 추가 */
+      padding-right: 50px; /* 오른쪽 여백 추가 */
+      width: 100%;
+    }
+
+    .gallery::-webkit-scrollbar {
+      height: 8px; /* 스크롤바의 높이 */
+      background-color: #f0f0f0; /* 배경색 */
+      border-radius: 10px;
+    }
+
+    .gallery::-webkit-scrollbar-thumb {
+      background-color: #3faffa; /* 스크롤바의 이동 가능한 부분 색 */
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .gallery::-webkit-scrollbar-thumb:hover {
+      background-color: #2d7ce7; /* 호버 시 색상 변경 */
+    }
+
+    .gallery::-webkit-scrollbar-track {
+      background-color: #e0e0e0; /* 스크롤바 트랙 색상 */
+      border-radius: 10px;
+    }
+
+    .gallery img {
+      width: 400px;
+      height: auto;
+      max-height: 500px;
+      transform: rotate(-15deg);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      margin-top: 100px; /* 이미지 아래로 내리기 */
+    }
+
+    .gallery img:hover {
+      transform: rotate(0deg);
+    }
+
+    .image-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 400px; /* 이미지가 너무 작아지지 않게 설정 */
+    }
+
+    .image-text {
+      background-color: #A5A5A5;
+      color: white;
+      text-align: center;
+      padding: 5px 10px;
+      display: none;
+      margin-top: 10px;
+    }
+
+    .image-container.active .image-text {
+      display: block;
+    }
+
+    .exit-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      z-index: 3; /* 버튼을 위로 배치 */
+    }
+
+    .exit-button img {
+      width: 55px;
+      height: 55px;
+      margin-right: 8px;
+    }
+
+    .exit-button span {
+      font-family: 'GongGothicMedium', sans-serif;
+      color: rgb(112, 100, 100);
+      font-size: 16px;
+    }
+
+    .exit-button:hover {
+      opacity: 0.7; /* 호버 시 투명도를 낮춤 */
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <a href="1st_mjh_odh.html" class="exit-button">
+    <img src="main folder/x button.png" alt="Exit Icon">
+  </a>
+  <div class="gallery">
+    <div class="image-container">
+      <img src="1st/love1.png" onclick="toggleText(this)">
+      <div class="image-text">쭈글 지환</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love2.png" onclick="toggleText(this)">
+      <div class="image-text">내가 엄청 좋아하는<br />챠파챠파 동하</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love3.png" onclick="toggleText(this)">
+      <div class="image-text">나한테만 보여준<br />메이드 동하//</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love4.png" onclick="toggleText(this)">
+      <div class="image-text">부끄러웠던...<br />메이드 지환</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love5.png" onclick="toggleText(this)">
+      <div class="image-text">새로운 모습이라 엄청 좋았던<br />안경 쓴 동하</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love6.png" onclick="toggleText(this)">
+      <div class="image-text">어렸을 적 지환</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love7.png" onclick="toggleText(this)">
+      <div class="image-text">어렸을 적 아기 동하♥</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love8.png" onclick="toggleText(this)">
+      <div class="image-text">목욕하고 나온 뽀송 동하</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love9.png" onclick="toggleText(this)">
+      <div class="image-text">뽀송뽀송 지환이</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love10.png" onclick="toggleText(this)">
+      <div class="image-text">다녀왔습니다-<br />동하</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love11.png" onclick="toggleText(this)">
+      <div class="image-text">커플로 맞췄던...<br />지환</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love12.png" onclick="toggleText(this)">
+      <div class="image-text">커플로 맞췄던...<br />동하</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love13.png" onclick="toggleText(this)">
+      <div class="image-text">강아지..?<br />지환</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love14.png" onclick="toggleText(this)">
+      <div class="image-text">고양이..!<br />동하</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love15.png" onclick="toggleText(this)">
+      <div class="image-text">매일 안아주고 싶은<br />동하</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love16.png" onclick="toggleText(this)">
+      <div class="image-text">부끄...///</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love17.png" onclick="toggleText(this)">
+      <div class="image-text">쪽...</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love18.png" onclick="toggleText(this)">
+      <div class="image-text">이마 콩..!</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love19.png" onclick="toggleText(this)">
+      <div class="image-text">아기가 그루밍 해준다..-</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love20.png" onclick="toggleText(this)">
+      <div class="image-text">빤히... 빤히...</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love21.png" onclick="toggleText(this)">
+      <div class="image-text">아기가 맛있게 먹어요..!</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love22.png" onclick="toggleText(this)">
+      <div class="image-text">커플 잠옷..//</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love23.png" onclick="toggleText(this)">
+      <div class="image-text">동하 품은 항상 따뜻해.</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love24.png" onclick="toggleText(this)">
+      <div class="image-text">할로윈 때 우리...<br />동하가 너무 귀여웠다!</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love25.png" onclick="toggleText(this)">
+      <div class="image-text">귀여워서 손 꼭 잡고 있었어.</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love26.png" onclick="toggleText(this)">
+      <div class="image-text">눈오는 날 동하<br />춥지 않게 안아주고 싶어.</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love27.png" onclick="toggleText(this)">
+      <div class="image-text">눈오는 날 지환</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love28.png" onclick="toggleText(this)">
+      <div class="image-text">내가 그린 동하<br />솔직히 잘 그렸지?</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love29.png" onclick="toggleText(this)">
+      <div class="image-text">빼빼로데이..<br />난 빼빼로 보다 동하가 좋아.</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love30.png" onclick="toggleText(this)">
+      <div class="image-text">너무 귀여워서.. 죽을 뻔한<br />빼빼로데이 동하</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love31.png" onclick="toggleText(this)">
+      <div class="image-text">동하 인형을 손에 쥐고...</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love32.png" onclick="toggleText(this)">
+      <div class="image-text">동하랑 연애 초반때...<br />이제는 일상이 된 모습.</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love33.png" onclick="toggleText(this)">
+      <div class="image-text">저는 오동하로 부탁드려요.</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love34.png" onclick="toggleText(this)">
+      <div class="image-text">동하랑 겨울 어느 날</div>
+    </div>
+    <div class="image-container">
+      <img src="1st/love35.png" onclick="toggleText(this)">
+      <div class="image-text">새해 맞이 전골!<br />하지만... 내가 잠들었다.</div>
+    </div>
+    <!-- 반복적으로 이미지 컨테이너 추가 -->
+  </div>
+
+  <script>
+    function toggleText(imgElement) {
+      const container = imgElement.parentElement;
+      const text = container.querySelector('.image-text');
+      container.classList.toggle('active');
+    }
+
+    const gallery = document.querySelector('.gallery');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    gallery.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - gallery.offsetLeft;
+      scrollLeft = gallery.scrollLeft;
+    });
+
+    gallery.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    gallery.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    gallery.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - gallery.offsetLeft;
+      const walk = (x - startX) * 2; // 스크롤 속도 조절
+      gallery.scrollLeft = scrollLeft - walk;
+    });
+  </script>
+</body>
+</html>
